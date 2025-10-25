@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Profile</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">CompanyLogo</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="profile.html">Our Profile</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Message Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="container">
+            <h1 id="welcome-message">Hi <span id="user-name">Guest</span>, Welcome To Website</h1>
+            <p>To submit website information</p>
+            
+            <!-- Name Input for Personalized Greeting -->
+            <div class="name-input">
+                <label for="userName">Enter your name:</label>
+                <input type="text" id="userName" placeholder="Your name here">
+                <button onclick="updateGreeting()">Update Greeting</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Headquarters Section -->
+    <section class="headquarters-section">
+        <div class="container">
+            <h2>Our Headquarter</h2>
+            <div class="headquarters-grid">
+                <div class="location-card">
+                    <div class="location-circle">Jakarta</div>
+                    <p>Jakarta Office</p>
+                </div>
+                <div class="location-card">
+                    <div class="location-circle">Bandung</div>
+                    <p>Bandung Office</p>
+                </div>
+                <div class="location-card">
+                    <div class="location-circle">Surabaya</div>
+                    <p>Surabaya Office</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Us Section -->
+    <section class="message-section">
+        <div class="container">
+            <h2>Message Us</h2>
+            <div class="message-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                        <div class="error" id="nameError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                        <div class="error" id="emailError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required>
+                        <div class="error" id="phoneError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" required></textarea>
+                        <div class="error" id="messageError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="radio-group">
+                            <input type="radio" id="male" name="gender" value="Male">
+                            <label for="male">Male</label>
+                            
+                            <input type="radio" id="female" name="gender" value="Female">
+                            <label for="female">Female</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit">Submit</button>
+                </form>
+                
+                <div class="submission-result" id="submissionResult">
+                    <h3>Submission Details</h3>
+                    <p><strong>Name:</strong> <span id="resultName">-</span></p>
+                    <p><strong>Email:</strong> <span id="resultEmail">-</span></p>
+                    <p><strong>Phone:</strong> <span id="resultPhone">-</span></p>
+                    <p><strong>Message:</strong> <span id="resultMessage">-</span></p>
+                    <p><strong>Gender:</strong> <span id="resultGender">-</span></p>
+                    <p><strong>Submitted On:</strong> <span id="resultDate">-</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Created By YourName</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
