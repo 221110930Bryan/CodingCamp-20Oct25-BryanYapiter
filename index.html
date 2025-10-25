@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Notification -->
+    <div id="notification" class="notification">Message submitted successfully!</div>
+
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
@@ -106,12 +109,30 @@
                         
                         <div class="submission-result" id="submissionResult">
                             <h3>Submission Details</h3>
-                            <p><strong>Name:</strong> <span id="resultName">-</span></p>
-                            <p><strong>Email:</strong> <span id="resultEmail">-</span></p>
-                            <p><strong>Phone:</strong> <span id="resultPhone">-</span></p>
-                            <p><strong>Message:</strong> <span id="resultMessage">-</span></p>
-                            <p><strong>Gender:</strong> <span id="resultGender">-</span></p>
-                            <p><strong>Submitted On:</strong> <span id="resultDate">-</span></p>
+                            <div class="result-item">
+                                <span class="result-label">Name:</span>
+                                <span class="result-value" id="resultName">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Email:</span>
+                                <span class="result-value" id="resultEmail">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Phone:</span>
+                                <span class="result-value" id="resultPhone">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Message:</span>
+                                <span class="result-value" id="resultMessage">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Gender:</span>
+                                <span class="result-value" id="resultGender">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Submitted On:</span>
+                                <span class="result-value" id="resultDate">-</span>
+                            </div>
                         </div>
                     </div>
                 </div>

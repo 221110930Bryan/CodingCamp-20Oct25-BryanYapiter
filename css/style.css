@@ -1,3 +1,23 @@
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    background-color: #28a745;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+}
+
+.notification.show {
+    transform: translateX(-50%) translateY(0);
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -298,14 +318,27 @@ button[type="submit"]:hover {
 .submission-result h3 {
     margin-bottom: 20px;
     color: #333;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #007bff;
 }
 
-.submission-result p {
-    margin-bottom: 10px;
+.result-item {
+    display: flex;
+    margin-bottom: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
 }
 
-.submission-result span {
+.result-label {
     font-weight: bold;
+    color: #007bff;
+    min-width: 120px;
+}
+
+.result-value {
+    flex: 1;
+    word-break: break-word;
 }
 
 /* Profile Page Styles */
@@ -506,5 +539,9 @@ footer {
         width: 80px;
         height: 80px;
         font-size: 1rem;
+    }
+    
+    .result-label {
+        min-width: 80px;
     }
 }

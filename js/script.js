@@ -33,6 +33,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Add this new function for showing notifications
+function showNotification(message, isSuccess = true) {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.className = 'notification';
+    
+    if (isSuccess) {
+        notification.style.backgroundColor = '#28a745'; // Green for success
+    } else {
+        notification.style.backgroundColor = '#dc3545'; // Red for error
+    }
+    
+    // Show notification
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    // Hide notification after 3 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 3000);
+}
+
 // Update welcome message with user's name
 function updateGreeting() {
     const userNameInput = document.getElementById('userName');
@@ -64,12 +87,17 @@ function validateForm(event) {
     // Validate each field
     let isValid = true;
     
+    // Clear all previous errors
+    clearError('name');
+    clearError('email');
+    clearError('phone');
+    clearError('message');
+    clearError('gender');
+    
     // Name validation
     if (!name) {
         showError('name', 'Please enter your name');
         isValid = false;
-    } else {
-        clearError('name');
     }
     
     // Email validation
@@ -79,8 +107,6 @@ function validateForm(event) {
     } else if (!isValidEmail(email)) {
         showError('email', 'Please enter a valid email address');
         isValid = false;
-    } else {
-        clearError('email');
     }
     
     // Phone validation
@@ -90,8 +116,6 @@ function validateForm(event) {
     } else if (!isValidPhone(phone)) {
         showError('phone', 'Please enter a valid phone number');
         isValid = false;
-    } else {
-        clearError('phone');
     }
     
     // Message validation
@@ -101,8 +125,6 @@ function validateForm(event) {
     } else if (message.length < 10) {
         showError('message', 'Message must be at least 10 characters long');
         isValid = false;
-    } else {
-        clearError('message');
     }
     
     // Gender validation
@@ -116,8 +138,6 @@ function validateForm(event) {
     if (!selectedGender) {
         showError('gender', 'Please select your gender');
         isValid = false;
-    } else {
-        clearError('gender');
     }
     
     // If form is valid, show submission results
@@ -131,7 +151,30 @@ function validateForm(event) {
         for (let i = 0; i < genderInputs.length; i++) {
             genderInputs[i].checked = false;
         }
+    } else {
+        // Show error notification if validation fails
+        showNotification('Please fix the errors in the form', false);
     }
+}
+
+// Update the showSubmissionResult function
+function showSubmissionResult(name, email, phone, message, gender) {
+    const resultName = document.getElementById('resultName');
+    const resultEmail = document.getElementById('resultEmail');
+    const resultPhone = document.getElementById('resultPhone');
+    const resultMessage = document.getElementById('resultMessage');
+    const resultGender = document.getElementById('resultGender');
+    const resultDate = document.getElementById('resultDate');
+    
+    resultName.textContent = name;
+    resultEmail.textContent = email;
+    resultPhone.textContent = phone;
+    resultMessage.textContent = message;
+    resultGender.textContent = gender;
+    resultDate.textContent = new Date().toLocaleString();
+    
+    // Show success notification
+    showNotification('Message submitted successfully!');
 }
 
 // Helper function to show error messages
@@ -168,26 +211,6 @@ function isValidPhone(phone) {
     // Simple phone validation - can be adjusted as needed
     const phoneRegex = /^[\+]?[0-9]{10,15}$/;
     return phoneRegex.test(phone.replace(/\s+/g, ''));
-}
-
-// Function to show submission results
-function showSubmissionResult(name, email, phone, message, gender) {
-    const resultName = document.getElementById('resultName');
-    const resultEmail = document.getElementById('resultEmail');
-    const resultPhone = document.getElementById('resultPhone');
-    const resultMessage = document.getElementById('resultMessage');
-    const resultGender = document.getElementById('resultGender');
-    const resultDate = document.getElementById('resultDate');
-    
-    resultName.textContent = name;
-    resultEmail.textContent = email;
-    resultPhone.textContent = phone;
-    resultMessage.textContent = message;
-    resultGender.textContent = gender;
-    resultDate.textContent = new Date().toLocaleString();
-    
-    // Scroll to submission result
-    document.getElementById('submissionResult').scrollIntoView({ behavior: 'smooth' });
 }
 
 // Add smooth scrolling for navigation links
